@@ -1,0 +1,63 @@
+package Main.java;
+class myThread extends  Thread{
+    /*thread constructor*/
+    public  myThread(String name){ //we can name the thread and use that 'name' to refer that Thread, to identify Thread
+        //all Threads are given Id also
+        super(name);
+    }
+    public void run(){
+        int i=0;
+        while (i<5){
+            System.out.println("i am Name Thread");
+            i++;
+        }
+    }
+}
+
+/* Runnable Interface*/
+class myRunnable implements Runnable {
+    public void run() {
+        int i=0;
+        while (i<5){
+            System.out.println("Thread Id : " + Thread.currentThread().getId()+ " i= "+ i);
+            i++;
+        }
+    }
+}
+
+
+   /* start(): This method starts the thread.
+        run(): This method is the code that will be executed when the thread starts.
+        join(): This method waits for the thread to terminate.
+        sleep(): This method causes the thread to sleep for the specified number of milliseconds.
+        yield(): This method yields the CPU to other threads.
+        interrupt(): This method interrupts the thread.
+        isAlive(): This method returns true if the thread is alive, false otherwise.
+        getName(): This method returns the name of the thread.
+        setPriority(): This method sets the priority of the thread.
+        getPriority(): This method gets the priority of the thread. */
+
+
+
+
+public class cwa73_Thread_Constructor {
+    public static void main(String[] args) {
+
+        /*Thread Class*/
+//     myThread t1 = new myThread("Altu");
+        myThread t2 = new myThread("Ramu");
+//        t1.start();
+//        System.out.println("Id of thread : " +t1.getId());
+//        System.out.println("Name of thread :" + t1.getName());
+        System.out.println("Id of thread : " +t2.getId());
+        System.out.println("Name of thread :" + t2.getName());
+
+        /*Runnable Interface*/
+     myRunnable myRun = new myRunnable();
+//     Thread rt1 = new Thread(myRun);
+        Thread rt2 = new Thread(myRun);
+//     t1.start();
+        rt2.start();
+    }
+}
+
